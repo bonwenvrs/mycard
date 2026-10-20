@@ -1,0 +1,856 @@
+:root {
+    --main-color-bg: #E3EDE3;
+    --card-color-bg: #F4F7F0;
+    --card-color-border: #C5D9C7;
+    --main-color-buttons: #294C3B;
+    --second-color-cards: #193629;
+    --text-color: #202522;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+[hidden] {
+    display:none!important;
+}
+
+html {
+    font-size:16px;
+}
+
+body {
+    margin:0;
+    min-height:100svh;
+    display:grid;
+    place-items:center;
+    padding:24px 14px;
+    background:var(--main-color-bg);
+    background-image:linear-gradient(rgba(41,76,59,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(41,76,59,.045) 1px,transparent 1px);
+    background-size:26px 26px;
+    color:var(--text-color);
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+button,a {
+    font:inherit;
+}
+
+button {
+    cursor:pointer;
+}
+
+button:focus-visible,a:focus-visible {
+    outline:2px solid #5e9474;
+    outline-offset:3px;
+}
+
+a {
+    color:inherit;
+}
+
+.desktop {
+    width:min(100%,820px);
+}
+
+/* Launch screen: an app, not a hero landing page. */
+
+.launcher {
+    width:min(100%,460px);
+    margin:auto;
+    border:1px solid var(--second-color-cards);
+    background:var(--card-color-bg);
+    box-shadow:9px 9px 0 rgba(25,54,41,.12);
+}
+
+.launcher-heading {
+    height:32px;
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:0 14px;
+    background:var(--second-color-cards);
+    color:var(--card-color-bg);
+    font:10px 'Courier New',monospace;
+    letter-spacing:1px;
+}
+
+.square-marker {
+    width:8px;
+    height:8px;
+    background:#a6c4ad;
+}
+
+.version {
+    margin-left:auto;
+    opacity:.62;
+}
+
+.launcher-inside {
+    padding:38px 35px 25px;
+    text-align:left;
+}
+
+.program-icon {
+    position:relative;
+    display:grid;
+    place-items:center;
+    width:69px;
+    height:68px;
+    border:2px solid var(--second-color-cards);
+    box-shadow:4px 4px 0 var(--card-color-border);
+    color:var(--second-color-cards);
+    font:700 26px 'Courier New',monospace;
+}
+
+.program-icon-square {
+    position:absolute;
+    width:10px;
+    height:10px;
+    background:var(--main-color-buttons);
+    bottom:7px;
+    right:7px;
+}
+
+.launcher-path,.label {
+    font:10px 'Courier New',monospace;
+    letter-spacing:.7px;
+    color:var(--main-color-buttons);
+}
+
+.launcher-path {
+    margin:30px 0 8px;
+}
+
+.launcher h1 {
+    font:700 clamp(37px,10vw,54px) 'Courier New',monospace;
+    letter-spacing:-3px;
+    color:var(--second-color-cards);
+    margin:0;
+}
+
+.launcher-description {
+    max-width:270px;
+    font-size:13px;
+    line-height:1.65;
+    color:#53695a;
+    margin:9px 0 29px;
+}
+
+.launch-btn {
+    width:100%;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    border:1px solid var(--second-color-cards);
+    background:var(--main-color-buttons);
+    color:white;
+    padding:0 17px;
+    font:700 12px 'Courier New',monospace;
+    letter-spacing:1px;
+    transition:background .18s,transform .18s,box-shadow .18s;
+}
+
+.launch-btn:hover {
+    background:var(--second-color-cards);
+    transform:translate(-2px,-2px);
+    box-shadow:4px 4px 0 #9ab5a0;
+}
+
+.launch-arrow {
+    margin-left:auto;
+    font-size:19px;
+}
+
+.launcher-hint {
+    margin-top:19px;
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font:10px 'Courier New',monospace;
+    color:#667c6c;
+}
+
+.launcher-hint>span:last-child {
+    margin-left:auto;
+}
+
+.live-indicator {
+    display:inline-block;
+    flex:none;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#527a59;
+}
+
+/* Card window */
+
+.window {
+    background:var(--card-color-bg);
+    border:1px solid var(--second-color-cards);
+    box-shadow:8px 9px 0 rgba(25,54,41,.11);
+}
+
+.main-window {
+    animation:windowIn .25s ease-out;
+}
+
+.titlebar {
+    min-height:35px;
+    background:var(--second-color-cards);
+    color:var(--card-color-bg);
+    padding:0 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font:700 11px 'Courier New',monospace;
+}
+
+.titlebar-name {
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.file-icon {
+    display:grid;
+    place-items:center;
+    background:#abc9b0;
+    color:var(--second-color-cards);
+    height:19px;
+    min-width:23px;
+    font-size:10px;
+}
+
+.titlebar-location {
+    color:#9fb8a5;
+    font-weight:400;
+}
+
+.window-actions {
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.window-actions>* {
+    height:23px;
+    min-width:26px;
+    display:grid;
+    place-items:center;
+    border:1px solid #688371;
+    background:transparent;
+    color:var(--card-color-bg);
+    font:16px Arial,sans-serif;
+}
+
+.window-actions button:hover,.modal-close:hover {
+    background:#3b6149;
+}
+
+.menubar {
+    height:30px;
+    display:flex;
+    align-items:center;
+    gap:22px;
+    padding:0 16px;
+    border-bottom:1px solid var(--card-color-border);
+    font:10px 'Courier New',monospace;
+    color:#637869;
+}
+
+.menubar-right {
+    margin-left:auto;
+}
+
+.page-body {
+    padding:22px;
+}
+
+.profile-header {
+    min-height:154px;
+    background:#dbe9da;
+    border:1px solid var(--card-color-border);
+    padding:22px 26px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.profile-header .label {
+    margin:0 0 13px;
+}
+
+.profile-header h2 {
+    font:700 clamp(27px,5vw,43px) 'Courier New',monospace;
+    letter-spacing:-2px;
+    line-height:1.1;
+    margin:0;
+    color:var(--second-color-cards);
+}
+
+.cursor {
+    color:#689078;
+    animation:blink 1.3s steps(1) infinite;
+}
+
+.profile-subtitle {
+    font-size:12px;
+    color:#55705c;
+    margin:12px 0 0;
+}
+
+.header-code {
+    padding:11px;
+    border:1px solid #a6beaa;
+    color:#75907d;
+    font:11px/1.55 'Courier New',monospace;
+    text-align:right;
+}
+
+.content-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);
+    gap:12px;
+    margin-top:12px;
+}
+
+.about-preview,.featured-panel {
+    min-width:0;
+    border:1px solid var(--card-color-border);
+    padding:14px;
+    background:#fbfcf8;
+}
+
+.section-top {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--card-color-border);
+}
+
+.section-top h3,.section-top span {
+    font:700 10px 'Courier New',monospace;
+    margin:0;
+    color:var(--main-color-buttons);
+}
+
+.section-top span {
+    font-weight:400;
+    color:#839887;
+}
+
+.about-preview p {
+    font-size:13px;
+    line-height:1.8;
+    margin:17px 0;
+}
+
+.interest-line {
+    margin:22px 0 18px;
+    font:10px/1.6 'Courier New',monospace;
+    color:#526b58;
+}
+
+.interest-line span {
+    color:var(--second-color-cards);
+    font-weight:bold;
+}
+
+.text-link {
+    border:0;
+    border-bottom:1px solid #94af9a;
+    background:none;
+    color:var(--main-color-buttons);
+    padding:3px 0;
+    font:700 10px 'Courier New',monospace;
+    transition:letter-spacing .2s;
+}
+
+.text-link:hover {
+    letter-spacing:.35px;
+}
+
+.featured-grid {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:8px;
+    margin-top:14px;
+}
+
+.featured-card {
+    min-width:0;
+    text-align:left;
+    border:1px solid #afc7b2;
+    background:#edf3e9;
+    padding:5px;
+    transition:transform .18s,box-shadow .18s;
+}
+
+
+.featured-card:nth-child(2) {
+    position: relative;
+    z-index: 2;
+    transform: scale(1.10);
+    border-color: var(--main-color-buttons);
+    box-shadow: 0 3px 10px rgba(25, 54, 41, 0.12);
+}
+
+.featured-card:nth-child(2):hover,
+.featured-card:nth-child(2):focus-visible {
+    transform: scale(1.10) translateY(-4px);
+    box-shadow: 3px 5px 0 rgba(25, 54, 41, 0.16);
+}
+
+.featured-card:hover,.featured-card:focus-visible {
+    transform:translateY(-4px);
+    box-shadow:3px 5px 0 rgba(25,54,41,.13);
+}
+
+.photo-slot {
+    width:100%;
+    aspect-ratio:3/4;
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(130deg,#c5d9c7,#e3ede3);
+    display:grid;
+    place-items:center;
+}
+
+.photo-slot img {
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:transform .25s;
+}
+
+.featured-card:hover img,.stan-card:hover img {
+    transform:scale(1.045);
+}
+
+.photo-fallback {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:6px;
+    color:#65806b;
+    font:11px 'Courier New',monospace;
+}
+
+.photo-fallback span {
+    font-size:21px;
+}
+
+.has-image .photo-fallback {
+    display:none;
+}
+
+.featured-card strong {
+    display:block;
+    font:700 11px 'Courier New',monospace;
+    color:var(--second-color-cards);
+    padding:8px 2px 4px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.featured-note {
+    font:10px 'Courier New',monospace;
+    color:#718777;
+    margin:12px 1px 0;
+}
+
+.nav-tabs {
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:9px;
+    margin-top:13px;
+}
+
+.nav-button {
+    min-height:42px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:8px;
+    border:1px solid #a8c1ad;
+    background:#e4eee2;
+    padding:0 12px;
+    color:var(--second-color-cards);
+    font:700 11px 'Courier New',monospace;
+    transition:background .18s,transform .18s;
+}
+
+.nav-button span:first-child {
+    opacity:.55;
+}
+
+.nav-button:hover {
+    background:#d1e3d0;
+    transform:translateY(-2px);
+}
+
+.nav-button.highlight {
+    background:var(--main-color-buttons);
+    border-color:var(--second-color-cards);
+    color:#fff;
+}
+
+.nav-button.highlight:hover {
+    background:var(--second-color-cards);
+}
+
+.status-bar {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    min-height:34px;
+    padding:7px 14px;
+    border-top:1px solid var(--card-color-border);
+    font:10px 'Courier New',monospace;
+    color:#54715a;
+}
+
+.status-bar .live-indicator {
+    margin-right:5px;
+}
+
+.status-bar a {
+    text-decoration:none;
+    color:var(--main-color-buttons);
+    font-weight:700;
+}
+
+.status-bar a:hover {
+    text-decoration:underline;
+}
+
+.desktop-footer {
+    text-align:center;
+    margin:22px 0 0;
+    font:9px 'Courier New',monospace;
+    letter-spacing:1px;
+    color:#6d8873;
+}
+
+.desktop-footer span {
+    padding:0 6px;
+}
+
+/* Pop-up files */
+
+.modal-backdrop {
+    position:fixed;
+    inset:0;
+    z-index:20;
+    display:grid;
+    place-items:center;
+    padding:20px;
+    background:rgba(16,32,22,.57);
+    backdrop-filter:blur(3px);
+}
+
+.modal-window {
+    width:min(100%,670px);
+    max-height:min(88svh,850px);
+    display:flex;
+    flex-direction:column;
+    animation:windowIn .2s ease-out;
+}
+
+.modal-close {
+    color:white;
+    background:transparent;
+    border:1px solid #688371;
+    font-size:17px;
+    width:25px;
+    height:24px;
+    line-height:1;
+}
+
+.modal-content {
+    overflow:auto;
+    min-height:0;
+    padding:23px;
+}
+
+.modal-footer {
+    display:flex;
+    justify-content:space-between;
+    border-top:1px solid var(--card-color-border);
+    padding:11px 17px;
+    font:9px 'Courier New',monospace;
+    color:#718777;
+}
+
+.modal-heading {
+    font:700 clamp(20px,5vw,29px) 'Courier New',monospace;
+    color:var(--second-color-cards);
+    margin:0 0 8px;
+    letter-spacing:-1px;
+}
+
+.modal-intro {
+    font:11px/1.7 'Courier New',monospace;
+    color:#607a66;
+    margin:0 0 20px;
+}
+
+.info-stack {
+    display:grid;
+    gap:11px;
+}
+
+.note-card {
+    padding:16px;
+    border:1px solid var(--card-color-border);
+    background:#ebf2e8;
+}
+
+.note-card h3 {
+    font:700 12px 'Courier New',monospace;
+    margin:0 0 10px;
+    color:var(--main-color-buttons);
+}
+
+.note-card p,.note-card li {
+    font-size:13px;
+    line-height:1.75;
+}
+
+.note-card p {
+    margin:5px 0;
+}
+
+.note-card ul {
+    padding-left:19px;
+    margin:0;
+}
+
+.tag-cloud {
+    display:flex;
+    gap:6px;
+    flex-wrap:wrap;
+    margin-top:12px;
+}
+
+.tag-cloud span {
+    padding:6px 8px;
+    border:1px solid #bfd1bf;
+    background:#f5f8f1;
+    font:10px 'Courier New',monospace;
+}
+
+.stan-grid {
+    display:grid;
+    grid-template-columns:repeat(10,minmax(0,1fr));
+    gap:9px;
+}
+
+.stan-card {
+    grid-column:span 2;
+    min-width:0;
+    border:1px solid var(--card-color-border);
+    background:#e9f0e6;
+    padding:5px;
+    text-align:center;
+    animation:cardIn .25s both;
+    animation-delay:var(--delay,0ms);
+    transition:transform .18s,box-shadow .18s;
+}
+
+.stan-card.main {
+    grid-column:span 3;
+    background:#d9e8d7;
+    border-color:#96b39d;
+    padding:7px;
+}
+
+.stan-card.main.first {
+    grid-column:2 / span 3;
+}
+
+.stan-card:hover {
+    transform:translateY(-3px);
+    box-shadow:3px 5px 0 rgba(25,54,41,.12);
+}
+
+.stan-card strong {
+    display:block;
+    font:700 10px 'Courier New',monospace;
+    margin-top:8px;
+    overflow-wrap:anywhere;
+    color:var(--second-color-cards);
+}
+
+.stan-card small {
+    display:block;
+    font:9px 'Courier New',monospace;
+    color:#6b866f;
+    margin-top:5px;
+}
+
+.stan-card .star {
+    display:block;
+    font:9px 'Courier New',monospace;
+    margin-top:5px;
+    color:var(--main-color-buttons);
+}
+
+.stan-card:not(.main) .star {
+    display:none;
+}
+
+@keyframes windowIn {
+    from {
+        opacity:0;
+        transform:translateY(9px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes cardIn {
+    from {
+        opacity:0;
+        transform:translateY(7px);
+    }
+    to {
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity:0;
+    }
+}
+
+@media(max-width:650px) {
+    .content-grid {
+        grid-template-columns:1fr;
+    }
+    .about-preview {
+        padding-bottom:22px;
+    }
+    .featured-grid .photo-slot {
+        aspect-ratio:4/3;
+    }
+    .header-code {
+        display:none;
+    }
+    .stan-grid {
+        gap:7px;
+    }
+    .modal-content {
+        padding:16px;
+    }
+}
+
+@media(max-width:440px) {
+    .launcher-inside {
+        padding:30px 22px 23px;
+    }
+    .page-body {
+        padding:11px;
+    }
+    .profile-header {
+        padding:19px 16px;
+        min-height:136px;
+    }
+    .profile-header h2 {
+        letter-spacing:-1.7px;
+    }
+    .nav-tabs {
+        gap:5px;
+    }
+    .nav-button {
+        font-size:9px;
+        padding:0 7px;
+        gap:3px;
+    }
+    .menubar {
+        gap:12px;
+        padding:0 10px;
+        font-size:9px;
+    }
+    .menubar-right {
+        display:none;
+    }
+    .featured-card strong {
+        font-size:10px;
+    }
+    .stan-grid {
+        grid-template-columns:repeat(6,minmax(0,1fr));
+    }
+    .stan-card.main,.stan-card.main.first {
+        grid-column:span 2;
+    }
+    .stan-card:not(.main) {
+        grid-column:span 3;
+    }
+    .stan-card {
+        padding:4px;
+    }
+    .stan-card strong {
+        font-size:9px;
+    }
+    .modal-backdrop {
+        padding:10px;
+    }
+    .note-card {
+        padding:12px;
+    }
+}
+
+@media(prefers-reduced-motion:reduce) {
+    *,*::before,*::after {
+        animation-duration:.01ms!important;
+        transition-duration:.01ms!important;
+    }
+}
+
+
+/* Featured WilliamEst card in stan archive */
+@media (min-width: 441px) {
+    .stan-grid > .stan-card.main:nth-child(2) {
+        position: relative;
+        z-index: 2;
+        transform: scale(1.10);
+        border-color: var(--main-color-buttons);
+        box-shadow: 0 3px 10px rgba(25, 54, 41, 0.12);
+    }
+
+    .stan-grid > .stan-card.main:nth-child(2):hover {
+        transform: scale(1.10) translateY(-4px);
+        box-shadow: 3px 5px 0 rgba(25, 54, 41, 0.16);
+    }
+}
+
+/* Smaller enlargement on mobile */
+@media (max-width: 440px) {
+    .stan-grid > .stan-card.main:nth-child(2) {
+        position: relative;
+        z-index: 2;
+        transform: scale(1.05);
+        border-color: var(--main-color-buttons);
+    }
+
+    .stan-grid > .stan-card.main:nth-child(2):hover {
+        transform: scale(1.05) translateY(-3px);
+    }
+}
+

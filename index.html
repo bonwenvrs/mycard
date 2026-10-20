@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#E3EDE3" />
+    <meta
+      name="description"
+      content="bonie's personal stan twitter card — BL, anime, and everything on repeat."
+    />
+    <title>bonie.exe — personal file</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="desktop">
+      <section class="launcher" id="launcher" aria-labelledby="launcher-title">
+        <div class="launcher-heading">
+          <span class="square-marker" aria-hidden="true"></span> PERSONAL
+          DESKTOP <span class="version">bl stan since 2020</span>
+        </div>
+        <div class="launcher-inside">
+          <div class="program-icon" aria-hidden="true">
+            <span>._.</span><span class="program-icon-square"></span>
+          </div>
+          <p class="launcher-path">C:\\USERS\\BONWENVRS\\PROFILE</p>
+          <h1 id="launcher-title">boniefiles</h1>
+          <p class="launcher-description">get to know me more, or not.</p>
+          <button id="launch-btn" class="launch-btn" type="button">
+            <span aria-hidden="true">▸</span> OPEN MY CARD
+            <span class="launch-arrow" aria-hidden="true">↗</span>
+          </button>
+          <div class="launcher-hint">
+            <span class="live-indicator"></span> page ready
+            <span>© 2005—now</span>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="window main-window"
+        id="card-window"
+        aria-labelledby="site-title"
+        hidden
+      >
+        <header class="titlebar">
+          <div class="titlebar-name">
+            <span class="file-icon" aria-hidden="true">._.</span> boniefiles
+            <span class="titlebar-location">/ personal profile</span>
+          </div>
+          <div class="window-actions">
+            <button
+              id="minimize-btn"
+              type="button"
+              aria-label="Return to desktop"
+            >
+              −</button
+            ><span aria-hidden="true">□</span
+            ><button
+              id="window-close-btn"
+              type="button"
+              aria-label="Close card"
+            >
+              ×
+            </button>
+          </div>
+        </header>
+        <div class="menubar">
+          <span>FILE</span><span>PROFILE</span><span>FAVORITES</span
+          ><span class="menubar-right">LOCAL USER / YOU</span>
+        </div>
+        <div class="page-body">
+          <header class="profile-header">
+            <div>
+              <p class="label">USER_001 / HELLO</p>
+              <h2 id="site-title">
+                สวัสดีครับ, I'm Bonie<span class="cursor">_</span>
+              </h2>
+              <p class="profile-subtitle">
+                bon / he-him / filipino / born dec '05
+              </p>
+            </div>
+            <div class="header-code" aria-hidden="true">
+              [ 001 ]<br />PERSONAL<br />ARCHIVE
+            </div>
+          </header>
+          <div class="content-grid">
+            <section class="about-preview" aria-labelledby="preview-heading">
+              <div class="section-top">
+                <h3 id="preview-heading">readme.txt</h3>
+                <span>01 / 02</span>
+              </div>
+              <p>
+                i am a big-time otaku and a bl fan. i talk about whatever i'm
+                watching, listen to far too much music, and occasionally
+                disappear to sleep my ass off.
+              </p>
+              <div class="interest-line">
+                <span>genres i listen to:</span> R&B / POP / ALTERNATIVE
+              </div>
+              <button type="button" class="text-link" data-open="about">
+                READ MORE ABOUT ME ↗
+              </button>
+            </section>
+            <section class="featured-panel" aria-labelledby="featured-heading">
+              <div class="section-top">
+                <h3 id="featured-heading">pinned / faves</h3>
+                <span>02 / 02</span>
+              </div>
+              <div class="featured-grid" id="featured-grid"></div>
+              <p class="featured-note">click a photo to see my stanlist.</p>
+            </section>
+          </div>
+          <nav class="nav-tabs" aria-label="Profile sections">
+            <button class="nav-button" type="button" data-open="about">
+              <span>01</span> about me <span aria-hidden="true">↗</span></button
+            ><button class="nav-button" type="button" data-open="byf">
+              <span>02</span> bfy / dni
+              <span aria-hidden="true">↗</span></button
+            ><button
+              class="nav-button highlight"
+              type="button"
+              data-open="stanlist"
+            >
+              <span>03</span> stanlist <span aria-hidden="true">↗</span>
+            </button>
+          </nav>
+        </div>
+        <footer class="status-bar">
+          <span><span class="live-indicator"></span> user online</span
+          ><a
+            href="https://x.com/bonwenvrs?s=11"
+            target="_blank"
+            rel="noopener noreferrer"
+            >X / @bonwenvrs ↗</a
+          >
+        </footer>
+      </section>
+      <p class="desktop-footer">boniefiles <span>—</span> i miss ohmnanon</p>
+    </main>
+
+    <div class="modal-backdrop" id="modal-backdrop" hidden>
+      <section
+        class="window modal-window"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        tabindex="-1"
+      >
+        <header class="titlebar">
+          <div class="titlebar-name">
+            <span class="file-icon" aria-hidden="true">._.</span>
+            <span id="modal-filename">about.txt</span>
+          </div>
+          <button
+            id="modal-close"
+            class="modal-close"
+            type="button"
+            aria-label="Close popup"
+          >
+            ×
+          </button>
+        </header>
+        <div class="modal-content" id="modal-content"></div>
+        <footer class="modal-footer">
+          <span>boniefiles</span><span>read only</span>
+        </footer>
+      </section>
+    </div>
+  </body>
+</html>
